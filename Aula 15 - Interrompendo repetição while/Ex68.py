@@ -1,29 +1,37 @@
 #Jogo do Par ou Ímpar
 
 from random import randint
-vitoria = 0
-while True:
-    jogador = int(input('Digite um valor: '))
-    computador = randint(0, 10)
-    total = jogador + computador
-    tipo = ' '
-    while tipo not in 'PI':
-        tipo = str(input('Par ou Ímpar? [P/I]: ')).strip().upper()[0]
-    print(f'Você jogou {jogador} e o computador {computador} e o total é de {total}.')
-    if tipo == 'P':
-        if total % 2 == 0:
-            print('Você ganhou!')
-            vitoria += 1
-        else:
-            print('Você perdeu!')
-            break
-    if tipo == 'I':
-        if total % 2 == 1:
-            print('Você ganhou!')
-            vitoria += 1
-        else:
-            print('Você perdeu!')
-            break
-    print('Vamos jogar novamente...')
 
-print(f'GAME OVER! Você venceu {vitoria} vezes!')
+vitoria = 0
+
+while True:
+    computador = randint(1, 10)
+    jogador = int(input('Digite um valor de 0 a 10: '))
+    par_ou_impar = input('Par ou ímpar? [P/I] ').upper()[0]
+
+    soma = computador + jogador
+
+    while par_ou_impar not in ('P', 'I'):
+        par_ou_impar = input('Par ou ímpar? [P/I] ').upper()[0]
+
+    if soma % 2 == 0 and par_ou_impar == 'P':
+        print(f'Você ganhou!')
+        vitoria += 1
+        continue
+
+    if soma % 2 == 1 and par_ou_impar == 'I':
+        print(f'Você ganhou!')
+        vitoria += 1
+        continue
+
+    else:
+        print('Você perdeu!')
+        print(f"Você jogou {jogador} e o computador jogou {computador}.")
+
+        if vitoria > 0:
+            print(f'Você venceu {vitoria} vez(es).')
+        break
+
+
+
+
