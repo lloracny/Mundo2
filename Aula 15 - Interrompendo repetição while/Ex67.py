@@ -1,7 +1,7 @@
 #Tabuada v3.0
 
 while True:
-    valor = int(input('Digite o valor que deseja ver a tabuada (Número negativo para parar:'))
+    valor = int(input('Digite o valor que deseja ver a tabuada (Número negativo para parar):'))
     if valor < 0:
         print('Parando...')
         break
